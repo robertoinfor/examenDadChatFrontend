@@ -3,7 +3,7 @@ import './Content.css';
 
 
 interface MenuProps {
-    chats: Chat[],
+    id: number
 }
 interface Chat {
     id_chat: number;
@@ -13,14 +13,15 @@ interface Chat {
     emisor: string;
 }
 
-const Content: React.FC<MenuProps> = ({ chats }) => {
-    const [messages, setMessages] = useState<Chat[]>(chats);
+const Content: React.FC<MenuProps> = ({ id }) => {
+    const [messages, setMessages] = useState<Chat[]>([]);
 
     useEffect(() => {
-        fetch("http://localhost:3002/api/chat")
+        fetch("http://localhost:3002/api/chat/" + id)
             .then(res => res.json())
             .then(setMessages)
             .catch(err => console.error("Error al obtener los mensajes", err));
+        console.log(messages)
     }, []);
     return (
         <div className="chat-history">
