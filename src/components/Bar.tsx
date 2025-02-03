@@ -33,8 +33,8 @@ const Bar: React.FC<MenuProps> = ({ getMessages }) => {
             </div>
             <ul className="list-unstyled chat-list mt-2 mb-0">
                 {usuarios.map((item) => (
-                    <li className="clearfix" >
-                        <div className="about" key={item.id_usuario} onClick={() => getMessages(item.id_usuario)} >
+                    <li className="clearfix" onClick={() => getMessages(item.id_usuario)} >
+                        <div className="about" key={item.id_usuario} >
                             <div className="name">{item.nombre}</div>
                             <div className="status"> <i className="fa fa-circle offline"></i>{item.estado}</div>
                         </div>

@@ -113,7 +113,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
-
       </IonContent>
     </IonPage>
   );
